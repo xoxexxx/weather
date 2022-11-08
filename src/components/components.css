@@ -1,0 +1,68 @@
+.form-input {
+    display: flex;
+    justify-content: center;
+}
+.form-input input {
+    width: 45%;
+    padding: 5px 10px;
+    background-color: silver;
+}
+.form-input button {
+    padding: 0 20px;
+    background-color: black;
+    color: white;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    cursor: pointer;
+}
+.container {
+    max-width: 1000px;
+}
+.card-list {
+    max-width: 960px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.Card {
+    text-align: center;
+    padding: 15px 30px;
+    border: 2px solid rgba(165, 165, 165, 0.5);
+    background-color: rgba(0, 121, 55, 0.514);
+    color: white;
+    border-radius: 30px;
+    margin-top: 60px;
+    width: 200px;
+   text-decoration: none;
+}
+.MainInfo div {
+    margin-top: 10px;
+}
+.Information {
+    margin-top: 15px;
+    text-align: start;
+}
+.Title {
+    font-size: 32px;
+    font-weight: 600;
+    word-break: break-all;
+    text-decoration: underline;
+    color: white;
+    
+    transition-duration: 1s;
+}
+.Title:hover {
+    color: rgba(7, 24, 124, 0.658);
+}
+.Description {
+    font-size: 26px;
+}
+.Temperature {
+    font-size: 68px;
+    font-weight: 800;
+}
+.x {
+    transform: translate(180px, 0);
+    position: absolute;
+    cursor: pointer;
+}
