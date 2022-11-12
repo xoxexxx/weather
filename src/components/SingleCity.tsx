@@ -4,12 +4,12 @@ import React from "react";
 export const SingleCity = (props: any) => {
   const location = useLocation();
   const API_KEY = "679db32e83fbaf68c57927630de1157e";
-  const [data, setData] = React.useState<null | any>(null);
+  const [data, setData] = React.useState<any>(null);
 
   function fetchAPI() {
     try {
       fetch(
-        `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?lat=${location.state.from.lat}&lon=${location.state.from.lon}&appid=${API_KEY}&units=metric`
+        `http://api.openweathermap.org/data/2.5/forecast?lat=${location.state.from.lat}&lon=${location.state.from.lon}&appid=${API_KEY}&units=metric`
       )
         .then((res) => res.json())
         .then((fetchData) => {
@@ -26,12 +26,15 @@ export const SingleCity = (props: any) => {
   useEffect(() => {
     fetchAPI();
   }, []);
+
+  
   return (
     <>
       <h1>{data?.city.name}</h1>
       <div className="single-city">
+        <h3>{data?.list[0].dt_txt.split(' ').reverse().pop()}</h3>
         <div className="forecast">
-          <h2 className="Title">{data?.list[0].dt_txt}</h2>
+          <h2 className="Title">{data?.list[0].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[0].weather[0].icon}@2x.png`}
             alt="weather"
@@ -48,7 +51,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[2].dt_txt}</h2>
+        <h2 className="Title">{data?.list[2].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[2].weather[0].icon}@2x.png`}
             alt="weather"
@@ -65,7 +68,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[4].dt_txt}</h2>
+        <h2 className="Title">{data?.list[4].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[4].weather[0].icon}@2x.png`}
             alt="weather"
@@ -82,7 +85,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[6].dt_txt}</h2>
+        <h2 className="Title">{data?.list[6].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[6].weather[0].icon}@2x.png`}
             alt="weather"
@@ -100,8 +103,9 @@ export const SingleCity = (props: any) => {
         </div>
       </div>
       <div className="single-city">
+      <h3>{data?.list[8].dt_txt.split(' ').reverse().pop()}</h3>
         <div className="forecast">
-          <h2 className="Title">{data?.list[8].dt_txt}</h2>
+          <h2 className="Title">{data?.list[8].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[8].weather[0].icon}@2x.png`}
             alt="weather"
@@ -118,7 +122,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[10].dt_txt}</h2>
+        <h2 className="Title">{data?.list[10].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[10].weather[0].icon}@2x.png`}
             alt="weather"
@@ -135,7 +139,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[12].dt_txt}</h2>
+        <h2 className="Title">{data?.list[12].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[12].weather[0].icon}@2x.png`}
             alt="weather"
@@ -152,7 +156,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[14].dt_txt}</h2>
+        <h2 className="Title">{data?.list[14].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[14].weather[0].icon}@2x.png`}
             alt="weather"
@@ -170,8 +174,9 @@ export const SingleCity = (props: any) => {
         </div>
       </div>
       <div className="single-city">
+      <h3>{data?.list[16].dt_txt.split(' ').reverse().pop()}</h3>
         <div className="forecast">
-          <h2 className="Title">{data?.list[16].dt_txt}</h2>
+          <h2 className="Title">{data?.list[16].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[16].weather[0].icon}@2x.png`}
             alt="weather"
@@ -188,7 +193,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[18].dt_txt}</h2>
+        <h2 className="Title">{data?.list[18].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[18].weather[0].icon}@2x.png`}
             alt="weather"
@@ -205,7 +210,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[20].dt_txt}</h2>
+        <h2 className="Title">{data?.list[20].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[20].weather[0].icon}@2x.png`}
             alt="weather"
@@ -222,7 +227,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[22].dt_txt}</h2>
+        <h2 className="Title">{data?.list[22].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[22].weather[0].icon}@2x.png`}
             alt="weather"
@@ -240,8 +245,9 @@ export const SingleCity = (props: any) => {
         </div>
       </div>
       <div className="single-city">
+      <h3>{data?.list[24].dt_txt.split(' ').reverse().pop()}</h3>
         <div className="forecast">
-          <h2 className="Title">{data?.list[24].dt_txt}</h2>
+          <h2 className="Title">{data?.list[24].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[24].weather[0].icon}@2x.png`}
             alt="weather"
@@ -258,7 +264,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[26].dt_txt}</h2>
+        <h2 className="Title">{data?.list[26].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[26].weather[0].icon}@2x.png`}
             alt="weather"
@@ -275,7 +281,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[28].dt_txt}</h2>
+        <h2 className="Title">{data?.list[28].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[28].weather[0].icon}@2x.png`}
             alt="weather"
@@ -292,7 +298,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[30].dt_txt}</h2>
+        <h2 className="Title">{data?.list[30].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[30].weather[0].icon}@2x.png`}
             alt="weather"
@@ -310,8 +316,9 @@ export const SingleCity = (props: any) => {
         </div>
       </div>
       <div className="single-city">
+      <h3>{data?.list[32].dt_txt.split(' ').reverse().pop()}</h3>
         <div className="forecast">
-          <h2 className="Title">{data?.list[32].dt_txt}</h2>
+          <h2 className="Title">{data?.list[32].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[32].weather[0].icon}@2x.png`}
             alt="weather"
@@ -328,7 +335,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[34].dt_txt}</h2>
+        <h2 className="Title">{data?.list[34].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[34].weather[0].icon}@2x.png`}
             alt="weather"
@@ -345,7 +352,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[36].dt_txt}</h2>
+        <h2 className="Title">{data?.list[36].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[36].weather[0].icon}@2x.png`}
             alt="weather"
@@ -362,7 +369,7 @@ export const SingleCity = (props: any) => {
           
         </div>
         <div className="forecast">
-        <h2 className="Title">{data?.list[38].dt_txt}</h2>
+        <h2 className="Title">{data?.list[38].dt_txt.split(' ').pop()}</h2>
           <img
             src={`https://openweathermap.org/img/wn/${data?.list[38].weather[0].icon}@2x.png`}
             alt="weather"

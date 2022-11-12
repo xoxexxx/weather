@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 export const Card: React.FC<City | any> = ({ city, remove }) => {
   const API_KEY = "679db32e83fbaf68c57927630de1157e";
   const [data, setData] = React.useState<Data | null | any>(null);
+  
  function fetchAPI() {
     try {
       fetch(
-        `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=metric`
+        `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=metric`
       )
         .then((res) => res.json())
         .then((fetchData) => {
@@ -21,7 +22,6 @@ export const Card: React.FC<City | any> = ({ city, remove }) => {
     } catch (e: unknown) {
         throw Error()
     }
-    
   }
   useEffect(() => {
    fetchAPI()
