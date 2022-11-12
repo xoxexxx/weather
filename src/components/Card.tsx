@@ -5,19 +5,26 @@ import { Link } from "react-router-dom";
 export const Card: React.FC<City | any> = ({ city, remove }) => {
   const API_KEY = "679db32e83fbaf68c57927630de1157e";
   const [data, setData] = React.useState<Data | null | any>(null);
-
+ function fetchAPI() {
+    try {
+      fetch(
+        `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=metric`
+      )
+        .then((res) => res.json())
+        .then((fetchData) => {
+          if (fetchData.cod === "404") {
+            throw Error("CITY_NOT_FOUND");
+          } else {
+            setData(fetchData);
+          }
+        });
+    } catch (e: unknown) {
+        throw Error()
+    }
+    
+  }
   useEffect(() => {
-    fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=metric`
-    )
-      .then((res) => res.json())
-      .then((fetchData) => {
-        if (fetchData.cod === "404") {
-          throw Error("CITY_NOT_FOUND");
-        } else {
-          setData(fetchData);
-        }
-      });
+   fetchAPI()
   }, []);
 
   return (
@@ -32,7 +39,7 @@ export const Card: React.FC<City | any> = ({ city, remove }) => {
             alt="weather"
             className="Icon"
           /> <br />
-          <Link to={`/${city.toLowerCase()}`} className="Title">{data?.name}</Link>
+          <Link to={`/${city.toLowerCase()}`} state={{ from: data?.coord }} className="Title">{data?.name}</Link>
           <div className="Description">{data?.weather[0]?.description}</div>
           <div className="Temperature">{data?.main.temp.toFixed()}°</div>
         </div>

@@ -32,7 +32,6 @@ export const Input: React.FC<any> = ({ setList }) => {
             return
           if (e.key === "Enter") {
             handleOnClick();
-            console.log("asas");
           }
         }}
       />
