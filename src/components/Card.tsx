@@ -9,7 +9,7 @@ export const Card: React.FC<City | any> = ({ city, remove }) => {
  function fetchAPI() {
     try {
       fetch(
-        `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=metric`
+        `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}&units=metric`
       )
         .then((res) => res.json())
         .then((fetchData) => {
@@ -29,7 +29,7 @@ export const Card: React.FC<City | any> = ({ city, remove }) => {
 
   return (
     
-      <div className="Card" >
+      <div className="Card" data-testid="card" >
         <div onClick={() => remove(city)} className="x">
           <Icon16CancelCircle width={30} height={30} />
         </div>
@@ -39,7 +39,7 @@ export const Card: React.FC<City | any> = ({ city, remove }) => {
             alt="weather"
             className="Icon"
           /> <br />
-          <Link to={`/${city.toLowerCase()}`} state={{ from: data?.coord }} className="Title">{data?.name}</Link>
+          <Link to={`/${city.toLowerCase()}`} state={{ from: data?.coord }} data-testid='city-name' className="Title">{data?.name}</Link>
           <div className="Description">{data?.weather[0]?.description}</div>
           <div className="Temperature">{data?.main.temp.toFixed()}°</div>
         </div>

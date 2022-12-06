@@ -9,7 +9,7 @@ export const SingleCity = (props: any) => {
   function fetchAPI() {
     try {
       fetch(
-        `http://api.openweathermap.org/data/2.5/forecast?lat=${location.state.from.lat}&lon=${location.state.from.lon}&appid=${API_KEY}&units=metric`
+        `https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?lat=${location.state.from.lat}&lon=${location.state.from.lon}&appid=${API_KEY}&units=metric`
       )
         .then((res) => res.json())
         .then((fetchData) => {
@@ -31,7 +31,7 @@ export const SingleCity = (props: any) => {
   return (
     <>
       <h1>{data?.city.name}</h1>
-      <div className="single-city">
+      <div className="single-city" data-testid='single-city'>
         <h3>{data?.list[0].dt_txt.split(' ').reverse().pop()}</h3>
         <div className="forecast">
           <h2 className="Title">{data?.list[0].dt_txt.split(' ').pop()}</h2>

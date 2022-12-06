@@ -36,7 +36,6 @@ export const Input: React.FC<any> = ({ setList }) => {
         }}
       />
       <button onClick={handleOnClick}>ADD</button>
-      {/* <button onClick={}></button> */}
     </div>
   );
 };
