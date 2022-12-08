@@ -1,10 +1,13 @@
-import React, { useEffect, useState, memo } from "react";
-import { Data, City } from "./type";
-import { Icon16CancelCircle } from "@vkontakte/icons";
 import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+
+import { Data, City } from "./type";
+
+import { Icon16CancelCircle } from "@vkontakte/icons";
+
 export const Card: React.FC<City | any> = ({ city, remove }) => {
   const API_KEY = "679db32e83fbaf68c57927630de1157e";
-  const [data, setData] = React.useState<Data | null | any>(null);
+  const [data, setData] = React.useState<Data | null>(null);
   
  function fetchAPI() {
     try {

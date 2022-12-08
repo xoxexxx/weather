@@ -1,15 +1,14 @@
 import "./components.css";
-import App from "../App";
-import React, { useState, useRef, PropsWithChildren, ChangeEvent } from "react";
-import { keyboard } from "@testing-library/user-event/dist/keyboard";
-import { preProcessFile } from "typescript";
-import { validateHeaderValue } from "http";
+
+import React, { useState, useRef } from "react";
+
 
 export const Input: React.FC<any> = ({ setList }) => {
   const inputRef = useRef<HTMLInputElement>(null);
-  const [inputValue, setInputValue] = useState("");
-  const handleOnChange = (event: any) => {
-    setInputValue(event.target.value);
+  const [inputValue, setInputValue] = React.useState<string>("");
+
+  const handleOnChange = (event: React.ChangeEvent<HTMLElement>) => {
+    setInputValue((event.target as any).value);
   };
   const handleOnClick: () => void = () => {
     if (inputValue.length == 0) 
@@ -27,7 +26,7 @@ export const Input: React.FC<any> = ({ setList }) => {
         value={inputValue}
         onChange={handleOnChange}
         ref={inputRef}
-        onKeyDown={(e: any) => {
+        onKeyDown={(e: React.KeyboardEvent<HTMLElement>) => {
           if (inputValue.length == 0)
             return
           if (e.key === "Enter") {

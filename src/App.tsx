@@ -35,7 +35,7 @@ const App = () => {
   return (
     <div className="App">
       {load && <div className="Cors">
-        Необходимо принять <a target='_blank' href="https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=Moscow&APPID=679db32e83fbaf68c57927630de1157e&units=metric">CORS</a>, <br />
+        Необходимо принять <a target='_blank' href="https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=Moscow&APPID=679db32e83fbaf68c57927630de1157e&units=metric">настройки HTTP</a>, <br />
         затем перезагрузить страницу
         </div>  }
         <HashRouter>

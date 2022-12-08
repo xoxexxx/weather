@@ -1,6 +1,7 @@
+import React, { useState, useEffect } from "react";
+
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-import React from "react";
+
 export const SingleCity = (props: any) => {
   const location = useLocation();
   const API_KEY = "679db32e83fbaf68c57927630de1157e";
