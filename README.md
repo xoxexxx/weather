@@ -1,11 +1,11 @@
 # React App
 # Weather forecast for the week in your city
 
-![app](https://github.com/xoxexxx/weather/blob/main/public/app-weather.png)
+![app](https://github.com/xoxexxx/weather/blob/weather/public/weather-app.png)
 
 
 # Weather update every 3 hours
-![single-city](https://github.com/xoxexxx/weather/blob/main/public/weather-app.png)
+![single-city](https://github.com/xoxexxx/weather/blob/weather/public/app-weather.png)
 
 
 # Easy test
